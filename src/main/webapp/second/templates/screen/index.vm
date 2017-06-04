@@ -1,0 +1,19 @@
+<form action="" method="post">
+    $csrfToken.hiddenField
+    <input type="hidden" name="action" value="test_action"/>
+
+    #set ($group = $form.second.defaultInstance)
+
+    <p>Hello, what's your name?</p>
+
+    #if (!$group.username.valid)
+    <p>$group.username.message</p>
+    #end
+
+    <p>
+        <input type="text" name="$group.username.key" value="$!group.username.value"/>
+        <input type="password" name="$group.password.key" value="$!group.password.value">
+        <input type="submit" name="event_submit_do_greeting"/>
+    </p>
+
+</form>
